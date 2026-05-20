@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import type { PricePeriod } from '@neighborhood-report/shared';
 import { compareCandidates, CompareData } from '../infrastructure/apiClient';
 import { useCandidates } from '../infrastructure/CandidatesContext';
+import { getMapTileUrl } from '../infrastructure/mapTile';
 import { ChevronLeft, EditIcon } from '../components/Icons';
 
 const CATEGORY_LABEL: Record<string, string> = {
@@ -97,6 +98,7 @@ function ComparisonPage() {
       <div className="compare-cards" style={{ gridTemplateColumns: `repeat(${candidates.length}, 1fr)` }}>
         {candidates.map((c) => {
           const r = data?.reports.find((x) => x.regionCode === c.regionCode);
+          const mapUrl = getMapTileUrl(c.latitude, c.longitude);
           return (
             <div className="compare-card" key={c.id}>
               {editing && (
@@ -109,7 +111,14 @@ function ComparisonPage() {
                   ✕
                 </button>
               )}
-              <div className="thumb" />
+              <div
+                className="thumb"
+                style={mapUrl ? {
+                  backgroundImage: `url(${mapUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                } : undefined}
+              />
               <div style={{ minWidth: 0 }}>
                 <div className="name">{c.alias ?? c.regionName}</div>
                 <div className="parent">{c.parentRegionName}</div>
