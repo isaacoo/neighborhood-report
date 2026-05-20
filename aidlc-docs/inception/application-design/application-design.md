@@ -1,6 +1,6 @@
 # Application Design (Consolidated)
 
-본 문서는 이사갈 동네 리포트 서비스의 application-level design을 통합 정리합니다. 상세 산출물은 동일 디렉토리의 다음 파일을 참조하세요:
+본 문서는 이사 갈 동네 리포트 서비스의 application-level design을 통합 정리합니다. 상세 산출물은 동일 디렉토리의 다음 파일을 참조하세요:
 - `components.md` — 컴포넌트 정의 및 책임
 - `component-methods.md` — 메소드 시그니처 (TypeScript)
 - `services.md` — Application Service Layer

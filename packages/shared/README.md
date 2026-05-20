@@ -1,6 +1,6 @@
 # @neighborhood-report/shared
 
-이사갈 동네 리포트 서비스의 공통 TypeScript 타입과 상수를 제공하는 패키지입니다.
+이사 갈 동네 리포트 서비스의 공통 TypeScript 타입과 상수를 제공하는 패키지입니다.
 모든 다른 unit (backend, frontend)이 본 패키지를 의존합니다.
 
 ## 사용 예시

@@ -3,7 +3,7 @@
 ## 1. Intent Analysis
 
 ### 1.1 User Request
-"이사갈 동네 리포트 서비스" — 정부 제공 공공 API를 활용해 사용자가 이사 후보 동네를 객관적으로 비교하고, 주거비, 생활 편의, 교통, 환경, 안전 인프라 관점에서 의사결정을 돕는 동네 분석 리포트 서비스. 사용자 입력 자료(`requirements/neighborhood-report-requirements.md`, `requirements/constraints.md`)와 명확화 답변을 기반으로 구체화.
+"이사 갈 동네 리포트 서비스" — 정부 제공 공공 API를 활용해 사용자가 이사 후보 동네를 객관적으로 비교하고, 주거비, 생활 편의, 교통, 환경, 안전 인프라 관점에서 의사결정을 돕는 동네 분석 리포트 서비스. 사용자 입력 자료(`requirements/neighborhood-report-requirements.md`, `requirements/constraints.md`)와 명확화 답변을 기반으로 구체화.
 
 ### 1.2 Request Classification
 - **Request Type**: New Project (Greenfield)

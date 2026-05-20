@@ -1,7 +1,7 @@
 # User Stories Assessment
 
 ## Request Analysis
-- **Original Request**: 이사갈 동네 리포트 서비스 — 공공 API 기반 동네 분석/비교 리포트 웹 서비스 신규 구축
+- **Original Request**: 이사 갈 동네 리포트 서비스 — 공공 API 기반 동네 분석/비교 리포트 웹 서비스 신규 구축
 - **User Impact**: Direct (직접적인 사용자 인터페이스, 검색-등록-비교-리포트 사용자 여정 핵심)
 - **Complexity Level**: Complex (14개 FR, 9개 NFR 영역, 다수 외부 API, 점수 산정 로직)
 - **Stakeholders**:

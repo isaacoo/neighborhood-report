@@ -2,7 +2,7 @@
   "name": "neighborhood-report",
   "version": "0.1.0",
   "private": true,
-  "description": "이사갈 동네 리포트 서비스 - 공공 API 기반 동네 분석 및 비교",
+  "description": "이사 갈 동네 리포트 서비스 - 공공 API 기반 동네 분석 및 비교",
   "workspaces": [
     "packages/backend",
     "packages/frontend",

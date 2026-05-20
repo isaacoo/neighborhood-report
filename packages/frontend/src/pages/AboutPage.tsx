@@ -2,13 +2,13 @@ function AboutPage() {
   return (
     <div>
       <h1>서비스 안내</h1>
-      <p className="subtitle">이사갈 동네 리포트는 공공 데이터 기반의 객관적인 동네 분석 서비스입니다.</p>
+      <p className="subtitle">이사 갈 동네 리포트는 공공 데이터 기반의 객관적인 동네 분석 서비스입니다.</p>
 
       <div className="card" style={{ marginTop: 24 }}>
         <h3>🏠 서비스 소개</h3>
         <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--text-muted)' }}>
           이사를 준비하면서 여러 동네를 비교하고 싶지만, 정보가 흩어져 있어 판단이 어려웠던 경험이 있으신가요?
-          이사갈 동네 리포트는 정부가 제공하는 공공 API 데이터를 수집·분석하여 후보 동네의 주거비, 생활 인프라,
+          이사 갈 동네 리포트는 정부가 제공하는 공공 API 데이터를 수집·분석하여 후보 동네의 주거비, 생활 인프라,
           교통, 환경, 안전을 종합적으로 평가하고 비교할 수 있는 리포트를 제공합니다.
         </p>
       </div>

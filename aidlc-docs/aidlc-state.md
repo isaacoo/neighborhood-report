@@ -1,7 +1,7 @@
 # AI-DLC State Tracking
 
 ## Project Information
-- **Project Name**: 이사갈 동네 리포트 서비스 (Neighborhood Report)
+- **Project Name**: 이사 갈 동네 리포트 서비스 (Neighborhood Report)
 - **Project Type**: Brownfield (기존 partial 코드 + Kiro spec 문서 존재)
 - **Start Date**: 2026-05-20T06:00:00Z
 - **Current Stage**: MVP Complete
