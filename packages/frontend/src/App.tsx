@@ -5,6 +5,9 @@ import HomePage from './pages/HomePage';
 import CandidateListPage from './pages/CandidateListPage';
 import ReportPage from './pages/ReportPage';
 import ComparisonPage from './pages/ComparisonPage';
+import DataSourcesPage from './pages/DataSourcesPage';
+import AboutPage from './pages/AboutPage';
+import SettingsPage from './pages/SettingsPage';
 import './styles.css';
 
 function App() {
@@ -33,6 +36,9 @@ function App() {
                 <Route path="/candidates" element={<CandidateListPage />} />
                 <Route path="/reports/:regionCode" element={<ReportPage />} />
                 <Route path="/compare" element={<ComparisonPage />} />
+                <Route path="/data-sources" element={<DataSourcesPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
               </Routes>
 
               <div className="footer">

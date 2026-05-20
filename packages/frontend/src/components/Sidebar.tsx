@@ -33,15 +33,15 @@ function Sidebar() {
 
       <div className="sidebar-section">
         <div className="sidebar-section-label">서비스</div>
-        <a className="nav-link" href="#" onClick={(e) => e.preventDefault()}>
+        <NavLink to="/data-sources" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <ReportIcon className="nav-icon" /> 데이터 출처
-        </a>
-        <a className="nav-link" href="#" onClick={(e) => e.preventDefault()}>
+        </NavLink>
+        <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <InfoIcon className="nav-icon" /> 서비스 안내
-        </a>
-        <a className="nav-link" href="#" onClick={(e) => e.preventDefault()}>
+        </NavLink>
+        <NavLink to="/settings" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <SettingsIcon className="nav-icon" /> 설정
-        </a>
+        </NavLink>
       </div>
 
       <div className="sidebar-footer">공공 데이터 기반 분석 · 본 서비스는 참고 자료를 제공합니다.</div>
