@@ -243,3 +243,15 @@ audit log 항목이 실수로 aidlc-state.md에 추가됐던 것을 발견하고
 **Context**: MVP 마무리. 모든 핵심 기능 동작 확인됨.
 
 ---
+
+## Stage: Build and Test + Operations Placeholder
+**Timestamp**: 2026-05-20T11:30:00Z
+**User Input**: "이어서 진행해줘."
+**AI Response**: AI-DLC 남은 산출물 작성:
+- `construction/build-and-test/build-instructions.md` — 빌드 가이드
+- `construction/build-and-test/unit-test-instructions.md` — 테스트 실행 가이드
+- `construction/build-and-test/build-and-test-summary.md` — 전체 검증 결과 요약 (31 tests pass, 5 API OK, 점수 변별력 확인)
+- `operations/operations-placeholder.md` — 배포/모니터링/보안/확장 계획
+**Context**: AI-DLC 워크플로우 CONSTRUCTION Build and Test 단계 + OPERATIONS placeholder 완료. 전체 워크플로우 산출물 작성 완료.
+
+---

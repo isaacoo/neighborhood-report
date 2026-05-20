@@ -51,8 +51,8 @@
 | CONSTRUCTION | U-2 NFR Design | ⏭️ Skipped (MVP pivot) | - |
 | CONSTRUCTION | U-2 Infrastructure Design | ⏭️ Skipped (U-7로 위임) | - |
 | CONSTRUCTION | U-2 ~ U-7 Code Generation | 🔶 MVP partial (in-memory 대체, Admin/IaC 보류) | 2026-05-20T10:15:00Z |
-| CONSTRUCTION | Build and Test | ✅ MVP 11/11 PBT + 20/20 unit + manual E2E | 2026-05-20T10:15:00Z |
-| OPERATIONS | Operations | ⏭️ PLACEHOLDER | - |
+| CONSTRUCTION | Build and Test | ✅ MVP 31/31 tests + manual E2E | 2026-05-20T11:30:00Z |
+| OPERATIONS | Operations | ✅ Placeholder 문서 작성 | 2026-05-20T11:30:00Z |
 
 ## Decisions Log
 
