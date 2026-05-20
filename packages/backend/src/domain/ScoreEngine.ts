@@ -138,15 +138,26 @@ export class ScoreEngine {
   private scoreInfra(infra?: InfraResult): CategoryScore {
     if (!infra) return this.unavailable('infrastructure', '데이터 없음');
     const hospital = infra.accessibilityScores.find((s) => s.category === 'hospital');
-    if (!hospital || hospital.dataStatus === 'unavailable') {
-      return this.unavailable('infrastructure', '병원 데이터 없음');
+    const pharmacy = infra.accessibilityScores.find((s) => s.category === 'pharmacy');
+
+    const availableScores = [hospital, pharmacy].filter(
+      (s) => s && s.dataStatus === 'available',
+    ) as import('@neighborhood-report/shared').CategoryScore[];
+
+    if (availableScores.length === 0) {
+      return this.unavailable('infrastructure', '의료시설 데이터 없음');
     }
+
+    const avg = Math.round(
+      availableScores.reduce((sum, s) => sum + s.score, 0) / availableScores.length,
+    );
+    const parts = availableScores.map((s) => `${s.category === 'hospital' ? '병원' : '약국'} ${s.score}점`).join(', ');
     return {
       category: 'infrastructure',
-      score: hospital.score,
+      score: avg,
       maxScore: 100,
-      rationale: `의료시설 - ${hospital.rationale}`,
-      dataStatus: hospital.dataStatus,
+      rationale: `의료시설 평균 (${parts})`,
+      dataStatus: 'available',
     };
   }
 

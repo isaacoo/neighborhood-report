@@ -24,24 +24,37 @@ export class InfraAnalyzer {
   ): Promise<InfraResult> {
     const sggInfo = getSggInfo(sggCode);
 
-    // 후보지 중심 좌표가 (0,0) 등 invalid 면 시군구 대표 좌표 fallback
     const lat = Number.isFinite(centerLat) && centerLat !== 0 ? centerLat : sggInfo?.latitude ?? 37.5665;
     const lon = Number.isFinite(centerLon) && centerLon !== 0 ? centerLon : sggInfo?.longitude ?? 126.978;
 
     let hospitals: RawHospital[] = [];
+    let pharmacies: RawHospital[] = [];
     let dataTimestamp = new Date().toISOString();
 
     if (sggInfo?.hiraSgguCd) {
-      const result = await this.cache.getOrFetch(
-        { apiName: 'hira.hospital', regionCode: sggCode, paramsHash: 'all' },
-        CACHE_TTL.facility,
-        () => this.hira.fetchHospitalsBySgguCd(sggInfo.hiraSgguCd!),
-      );
-      hospitals = result.data;
-      dataTimestamp = result.cachedAt;
+      const [hospResult, pharmResult] = await Promise.allSettled([
+        this.cache.getOrFetch(
+          { apiName: 'hira.hospital', regionCode: sggCode, paramsHash: 'hosp' },
+          CACHE_TTL.facility,
+          () => this.hira.fetchHospitalsBySgguCd(sggInfo.hiraSgguCd!),
+        ),
+        this.cache.getOrFetch(
+          { apiName: 'hira.pharmacy', regionCode: sggCode, paramsHash: 'pharm' },
+          CACHE_TTL.facility,
+          () => this.hira.fetchPharmaciesBySgguCd(sggInfo.hiraSgguCd!),
+        ),
+      ]);
+      if (hospResult.status === 'fulfilled') {
+        hospitals = hospResult.value.data;
+        dataTimestamp = hospResult.value.cachedAt;
+      }
+      if (pharmResult.status === 'fulfilled') {
+        pharmacies = pharmResult.value.data;
+      }
     }
 
     const hospitalGroup = this.toFacilityGroup('hospital', hospitals, lat, lon);
+    const pharmacyGroup = this.toFacilityGroup('pharmacy', pharmacies, lat, lon);
 
     const stubGroup = (cat: FacilityCategory): FacilityGroup => ({
       category: cat,
@@ -52,7 +65,7 @@ export class InfraAnalyzer {
 
     const groups: FacilityGroup[] = [
       hospitalGroup,
-      stubGroup('pharmacy'),
+      pharmacyGroup,
       stubGroup('school'),
       stubGroup('park'),
       stubGroup('public'),

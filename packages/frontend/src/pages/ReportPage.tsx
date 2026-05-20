@@ -4,6 +4,7 @@ import type { PricePeriod } from '@neighborhood-report/shared';
 import { getReport, ReportWithSummaries } from '../infrastructure/apiClient';
 import { formatPrice } from '../infrastructure/format';
 import RadarChart from '../components/RadarChart';
+import PriceBarChart from '../components/PriceBarChart';
 import { CATEGORY_ICONS, ChevronLeft } from '../components/Icons';
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -233,6 +234,7 @@ function ReportPage() {
           <div style={{ fontSize: 12, color: 'var(--text-subtle)', marginTop: 8 }}>
             데이터 기준 시각: {new Date(price.dataTimestamp).toLocaleString()}
           </div>
+          <PriceBarChart areaGroups={price.areaGroups} />
         </>
       )}
 

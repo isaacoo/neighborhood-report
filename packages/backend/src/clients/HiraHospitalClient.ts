@@ -45,6 +45,23 @@ export class HiraHospitalClient extends BaseHttpClient {
     return this.parseResponse(data);
   }
 
+  /** HIRA 고유 sgguCd로 약국 목록 조회 */
+  async fetchPharmaciesBySgguCd(hiraSgguCd: string, numOfRows = 500): Promise<RawHospital[]> {
+    const data = await this.get<HiraJsonResponse | string>('/getParmBasisList', {
+      apiName: API_NAMES.hiraHospital,
+      responseType: 'text',
+      params: {
+        serviceKey: API_CONFIG.serviceKey,
+        sgguCd: hiraSgguCd,
+        numOfRows,
+        pageNo: 1,
+        _type: 'json',
+      },
+    });
+
+    return this.parseResponse(data);
+  }
+
   private parseResponse(data: HiraJsonResponse | string): RawHospital[] {
     let parsed: HiraJsonResponse;
     if (typeof data === 'string') {
